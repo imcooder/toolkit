@@ -1,0 +1,356 @@
+#!/bin/bash
+# imcooder@qq.com
+
+BIN_DIR="$(cd "$( dirname "$0" )" && pwd)"
+
+sname=$(hostname)
+if [[ `echo $sname | grep -P ".baidu.com$"`!="" ]]; then
+    sname=$(echo $sname | sed 's/.baidu.com//i')
+fi
+isLinux="0"
+if [[ "$(uname)"="Linux" ]]; then
+  isLinux="1"
+fi
+
+alias cnpm="npm --registry=https://registry.npm.taobao.org \
+--cache=$HOME/.npm/.cache/cnpm \
+--disturl=https://npm.taobao.org/dist \
+--userconfig=$HOME/.cnpmrc"
+
+# 防止auto logout
+export TMOUT=864000
+export CLICOLOR=1
+export TERM=xterm-256color
+
+LOCAL_ROOT="$HOME/software"
+## LD PATH
+ldItems=(
+    ${JUMBO_ROOT}/opt/gcc53/lib64
+    ${JUMBO_ROOT}/lib
+    ${JUMBO_ROOT}/lib/llvm/
+    ${JUMBO_ROOT}/lib/perl5/core_perl/CORE
+    $LOCAL_ROOT/ruby/lib/
+    /usr/local/ssl/include/openssl
+    /usr/lib
+    /usr/local/lib
+    /usr/lib/pkgconfig
+    /usr/local/include/wx-2.8/wx
+    $HOME/bin/llvm/lib
+    $HOME/bin/llvm/libexec
+    $LD_LIBRARY_PATH
+)
+joinedPath=""
+for t in ${ldItems[@]}; do
+    if [[ "$joinedPath" = "" ]]; then
+        joinedPath="$t"
+    else
+        joinedPath="$joinedPath:$t"
+    fi
+done
+LD_LIBRARY_PATH="$joinedPath"
+export LD_LIBRARY_PATH
+
+## PATH
+pathItems=(
+    ${JUMBO_ROOT}/opt/gcc53/bin
+    $LOCAL_ROOT/llvm/bin
+    $LOCAL_ROOT/node/bin
+    $LOCAL_ROOT/cmake/bin
+    $LOCAL_ROOT/ruby/bin
+    $LOCAL_ROOT
+    $HOME/.f_home
+    $HOME/.f_home/hadoop-client/hadoop/bin
+    $HOME/.BCloud/bin
+    $HOME/.Comake2/comake
+    $HOME/src/go/bin
+    $PATH
+    /opt/compiler/gcc-4.8.2/bin
+)
+joinedPath=""
+for t in ${pathItems[@]}; do
+    if [[ "$joinedPath" = "" ]]; then
+        joinedPath="$t"
+    else
+        joinedPath="$joinedPath:$t"
+    fi
+done
+PATH="$joinedPath"
+export PATH
+
+## lang
+export LANG='zh_CN.UTF-8'
+#export LANG='en_US.UTF-8'
+
+export PS1="[\u@${sname}:\W]\\$ "
+## color
+## Use a long listing format ##
+alias ll='ls -l'
+alias lla='ls -la'
+## list all
+alias la='ls -A'
+#alias l='ls -la'
+alias lh='ls -lh'
+# mr
+alias to_mr="cd $MR_ROOT"
+## Show only hidden files ##
+alias l.='ls -l -d .* --color=auto'
+alias toutf8='export LC_CTYPE="zh_CN.UTF-8"'
+alias togb2312='export LC_CTYPE="zh_CN.GB2312"'
+
+# git
+alias gup='git pull'
+alias greset='git reset --hard origin/master'
+alias gdiff='git diff'
+alias glog='git log'
+function gpush() {
+    local b="master"
+    if [[ "$1" != "" ]]; then
+        b="$1"
+    fi
+    git push origin "HEAD:refs/for/${b}"
+}
+alias gs='git status'
+alias gb='git branch'
+
+alias bash.src='source $HOME/.bash_profile'
+
+alias tnew='tmux new -s'
+alias vi="vim"
+alias j="jobs -l"
+alias mkdir="mkdir -pv "
+alias dp='du ./ --max-depth=1 -h'
+alias c="clear"
+## get rid of command not found ##
+alias cd..='cd ..'
+alias ..="cd .."
+alias ...="cd ../.."
+## path
+alias p='pwd'
+alias pwd1="echo -e \"\n\"; pwd;  echo -n \"`whoami`@`hostname`:\";pwd;  echo -n \"scp `whoami`@`hostname`:\";pwd;echo -n     \"scp -r `whoami`@`hostname`:\";pwd;  echo -n \"wget -r -l 0 ftp://`hostname`\";pwd; echo -ne \"\n\n\""
+alias cls='clear'
+alias grep='grep --color'
+alias agrep='agrep --color'
+alias egrep='egrep --color'
+alias fgrep='fgrep --color'
+alias hg="history | grep"
+alias ps?="ps aux | grep"
+alias b='bcloud'
+alias bl='bcloud local'
+alias bb='bcloud build'
+alias port='netstat -tulanp'
+alias ports='port'
+alias ipinfo="curl ifconfig.me && curl ifconfig.me/host"
+alias start_samba="/etc/init.d/smb restart"
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+## jobs
+alias j="jobs"
+alias 1="fg %1"
+alias 2="fg %2"
+alias 3="fg %3"
+alias 4="fg %4"
+alias 5="fg %5"
+alias 6="fg %6"
+alias 7="fg %7"
+alias 8="fg %8"
+alias 9="fg %9"
+alias 10="fg %10"
+alias 11="fg %11"
+alias 12="fg %12"
+alias 13="fg %13"
+
+md5check() { md5sum "$1" | grep "$2";}
+function md5_string {
+    local input="$1"
+    local sign=`echo -n "$input"|md5sum|awk '{print $1}'`
+    echo "$sign"
+}
+mkcd() { mkdir -p "$1"; cd "$1";}
+c_ls() { cd "$1"; ls;}
+backup() { cp "$1"{,.bak};}
+
+function find_file() {
+    find . -iname $1
+}
+
+parse_timestamp() {
+    local t="$1";
+    if [[ "$t" == ""  ]]; then
+        t=$(timestamp)
+    fi
+    local ms=`printf %03d $(($t%1000))`
+    echo `date -d @$(($t/1000)) "+%Y-%m-%d %H:%M:%S.$ms"`
+}
+
+timestamp() {
+    echo `date +%s%N | cut -b1-13`
+}
+## npm
+alias nis="npm install --save "
+alias nisd="npm install --save-dev "
+
+# get web server headers #
+alias header='curl -I'
+## pass options to free ##
+alias meminfo='free -m -l -t'
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+
+## set some other defaults ##
+alias df='df -H'
+alias du='du -ch'
+
+## 显示和隐藏光标
+alias show_cursor='echo -e "\033[?25h"'
+alias hide_cursor='echo -e "\033[?25l"'
+
+function xtoolkit() {
+    node "${NODE_TOOLKIT_DIR}/app.js" "$@"
+}
+## ------------------node ------------------
+function xnode() {
+    node --max-old-space-size=8192 "$@"
+}
+export NODE_OPTIONS=--max-old-space-size=8192
+# --------------------------------------
+## llnode
+export LLNODE_DEBUG=true
+export TEST_LLNODE_DEBUG=true
+
+function x_myip() {
+    local IP=`ifconfig | grep inet | grep -vE 'inet6|127.0.0.1' | awk '{print $2}' | awk -F':' '{print $2}'`
+    echo $IP
+}
+
+# cpu
+function x_cpu() {
+    cpu_num=`grep -c "model name" /proc/cpuinfo`
+    echo "cpu总核数："$cpu_num
+    cpu_user=`top -b -n 1 | grep Cpu | awk '{print $2}' | cut -f 1 -d "%"`
+    echo "用户空间占用CPU百分比："$cpu_user
+
+    # 获取内核空间占用CPU百分比
+    cpu_system=`top -b -n 1 | grep Cpu | awk '{print $4}' | cut -f 1 -d "%"`
+    echo "内核空间占用CPU百分比："$cpu_system
+
+    # 获取空闲CPU百分比
+    cpu_idle=`top -b -n 1 | grep Cpu | awk '{print $8}' | cut -f 1 -d "%"`
+    echo "空闲CPU百分比："$cpu_idle
+
+    # 获取等待输入输出占CPU百分比
+    cpu_iowait=`top -b -n 1 | grep Cpu | awk '{print $10}' | cut -f 1 -d "%"`
+    echo "等待输入输出占CPU百分比："$cpu_iowait
+
+    #2、获取CPU上下文切换和中断次数
+    # 获取CPU中断次数
+    cpu_interrupt=`vmstat -n 1 1 | sed -n 3p | awk '{print $11}'`
+    echo "CPU中断次数："$cpu_interrupt
+
+    # 获取CPU上下文切换次数
+    cpu_context_switch=`vmstat -n 1 1 | sed -n 3p | awk '{print $12}'`
+    echo "CPU上下文切换次数："$cpu_context_switch
+
+    #3、获取CPU负载信息
+    # 获取CPU15分钟前到现在的负载平均值
+    cpu_load_15min=`uptime | awk '{print $11}' | cut -f 1 -d ','`
+    echo "CPU 15分钟前到现在的负载平均值："$cpu_load_15min
+
+    # 获取CPU5分钟前到现在的负载平均值
+    cpu_load_5min=`uptime | awk '{print $10}' | cut -f 1 -d ','`
+    echo "CPU 5分钟前到现在的负载平均值："$cpu_load_5min
+
+    # 获取CPU1分钟前到现在的负载平均值
+    cpu_load_1min=`uptime | awk '{print $9}' | cut -f 1 -d ','`
+    echo "CPU 1分钟前到现在的负载平均值："$cpu_load_1min
+
+    # 获取任务队列(就绪状态等待的进程数)
+    cpu_task_length=`vmstat -n 1 1 | sed -n 3p | awk '{print $1}'`
+    echo "CPU任务队列长度："$cpu_task_length
+}
+
+# mem
+function x_mem() {
+    mem_total=`free | grep Mem | awk '{print $2}'`
+    echo "物理内存总量："$mem_total
+
+    # 获取操作系统已使用内存总量
+    mem_sys_used=`free | grep Mem | awk '{print $3}'`
+    echo "已使用内存总量(操作系统)："$mem_sys_used
+
+    # 获取操作系统未使用内存总量
+    mem_sys_free=`free | grep Mem | awk '{print $4}'`
+    echo "剩余内存总量(操作系统)："$mem_sys_free
+
+    # 获取应用程序已使用的内存总量
+    mem_user_used=`free | sed -n 3p | awk '{print $3}'`
+    echo "已使用内存总量(应用程序)："$mem_user_used
+
+    # 获取应用程序未使用内存总量
+    mem_user_free=`free | sed -n 3p | awk '{print $4}'`
+    echo "剩余内存总量(应用程序)："$mem_user_free
+
+
+    # 获取交换分区总大小
+    mem_swap_total=`free | grep Swap | awk '{print $2}'`
+    echo "交换分区总大小："$mem_swap_total
+
+    # 获取已使用交换分区大小
+    mem_swap_used=`free | grep Swap | awk '{print $3}'`
+    echo "已使用交换分区大小："$mem_swap_used
+
+    # 获取剩余交换分区大小
+    mem_swap_free=`free | grep Swap | awk '{print $4}'`
+    echo "剩余交换分区大小："$mem_swap_free
+}
+# io
+function x_io() {
+    echo "指定设备(/dev/sda)的统计信息"
+    # 每秒向设备发起的读请求次数
+    disk_sda_rs=`iostat -kx | grep sda| awk '{print $4}'`
+    echo "每秒向设备发起的读请求次数："$disk_sda_rs
+
+    # 每秒向设备发起的写请求次数
+    disk_sda_ws=`iostat -kx | grep sda| awk '{print $5}'`
+    echo "每秒向设备发起的写请求次数："$disk_sda_ws
+
+    # 向设备发起的I/O请求队列长度平均值
+    disk_sda_avgqu_sz=`iostat -kx | grep sda| awk '{print $9}'`
+    echo "向设备发起的I/O请求队列长度平均值"$disk_sda_avgqu_sz
+
+    # 每次向设备发起的I/O请求平均时间
+    disk_sda_await=`iostat -kx | grep sda| awk '{print $10}'`
+    echo "每次向设备发起的I/O请求平均时间："$disk_sda_await
+
+    # 向设备发起的I/O服务时间均值
+    disk_sda_svctm=`iostat -kx | grep sda| awk '{print $11}'`
+    echo "向设备发起的I/O服务时间均值："$disk_sda_svctm
+
+    # 向设备发起I/O请求的CPU时间百分占比
+    disk_sda_util=`iostat -kx | grep sda| awk '{print $12}'`
+    echo "向设备发起I/O请求的CPU时间百分占比："$disk_sda_util
+}
+
+alias adb_log_clean="adb logcat -c"
+alias adb_log_tailf="adb logcat -v threadtime"
+alias adb_log_pull="adb pull /data/log ."
+
+
+function devdocs_start() {
+    cd "$HOME/src/github.com/devdocs"
+    nohup bundle exec rackup -o 10.138.65.95 -p 8060 &
+    cd -
+}
+
+function devdocs_update() {
+    cd "$HOME/src/github.com/devdocs"
+    git pull
+    nohup bundle exec thor docs:download --all &
+    cd -
+}
