@@ -363,7 +363,7 @@ function err() {
     exit 1
 }
 function verify_empty {
-    local val="$1" 
+    local val="$1"
     local msg="$2"
     if [[ "$val" == ""  ]]; then
         err "$msg"
@@ -388,11 +388,10 @@ function to_user() {
     local user="$1"
     verify_empty $user "to_user $user"
     local current_user=$(echo $USER)
-    echo $current_user
-    exit
-    if [[ "$user" == "${current_user}" ]]; then
-        err "same user"
+    if [[ "$user" != "${current_user}" ]]; then
+        tip $user@$fname
+        ssh $user@$fname
+    else
+        echo "same user.. ignore"
     fi
-    tip $user@$fname
-    ssh $user@$fname
 }
