@@ -8,6 +8,7 @@ if [[ `echo $sname | grep -P ".baidu.com$"`!="" ]]; then
     sname=$(echo $sname | sed 's/.baidu.com//i')
 fi
 isLinux="0"
+
 if [[ "$(uname)"="Linux" ]]; then
   isLinux="1"
 fi
