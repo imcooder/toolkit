@@ -28,6 +28,7 @@ export TERM=xterm-256color
 LOCAL_ROOT="$HOME/software"
 ## LD PATH
 ldItems=(
+    $HOME/bin/lib
     ${JUMBO_ROOT}/opt/gcc53/lib64
     ${JUMBO_ROOT}/lib
     ${JUMBO_ROOT}/lib/llvm/
@@ -56,6 +57,7 @@ export LD_LIBRARY_PATH
 ## PATH
 pathItems=(
     $LOCAL_ROOT/bin
+    $HOME/bin/bin
     ${JUMBO_ROOT}/opt/gcc53/bin
     $LOCAL_ROOT/llvm/bin
     $LOCAL_ROOT/node/bin
@@ -397,3 +399,5 @@ function to_user() {
         echo "same user.. ignore"
     fi
 }
+
+alias to_work="to_user work"
