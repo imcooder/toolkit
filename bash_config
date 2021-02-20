@@ -399,5 +399,5 @@ function to_user() {
         echo "same user.. ignore"
     fi
 }
-
+alias to_root="to_user root"
 alias to_work="to_user work"
