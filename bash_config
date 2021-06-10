@@ -5,11 +5,17 @@ BIN_DIR="$(cd "$( dirname -- "$0" )" && pwd)"
 
 
 # usage
-# bash_config1="${DEV_GITHUB_ROOT}/toolkit/bash_config"
-# if [[ -f "${bash_config1}"  ]]; then
-#    source "${bash_config1}"
-# fi
-
+: '
+bashConfigItems=(
+    ${DEV_GITHUB_ROOT}/toolkit/bash_config
+    ${DEV_ROOT}/gitlab/toolkit/bash_config
+)
+for configItem in ${ldItems[@]}; do
+    if [[ -f "${configItem}"  ]]; then
+        source "${configItem}"
+    fi
+done
+'
 
 
 fname=$(hostname)
