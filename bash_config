@@ -4,6 +4,14 @@
 BIN_DIR="$(cd "$( dirname -- "$0" )" && pwd)"
 
 
+# usage
+# bash_config1="${DEV_GITHUB_ROOT}/toolkit/bash_config"
+# if [[ -f "${bash_config1}"  ]]; then
+#    source "${bash_config1}"
+# fi
+
+
+
 fname=$(hostname)
 sname=$(hostname)
 if [[ `echo $sname | grep -P ".baidu.com$"`!="" ]]; then
@@ -98,6 +106,18 @@ alias la='ls -A'
 alias lh='ls -lh'
 # mr
 alias to_mr="cd $MR_ROOT"
+
+# dev
+alias DEV_ROOT='$HOME/dev'
+alias DEV_GITHUB_ROOT='${DEV_ROOT}/github.com'
+alias DEV_BAIDU_ROOT='${DEV_ROOT}/icode.baidu.com/baidu'
+alias DEV_DUER_ROOT='${DEV_ROOT}/icode.baidu.com/baidu/duer'
+
+alias to_dev='cd ${DEV_ROOT}'
+alias to_duer='cd ${DEV_DUER_ROOT}'
+alias to_baidu='cd ${DEV_BAIDU_ROOT}'
+alias to_github='cd ${DEV_GITHUB_ROOT}'
+
 ## Show only hidden files ##
 alias l.='ls -l -d .* --color=auto'
 alias toutf8='export LC_CTYPE="zh_CN.UTF-8"'
@@ -401,3 +421,6 @@ function to_user() {
 }
 alias to_root="to_user root"
 alias to_work="to_user work"
+
+# 服务器
+alias ssh_xiaodu="ssh cooder@172.20.108.27"
