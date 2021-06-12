@@ -113,10 +113,15 @@ alias lh='ls -lh'
 alias to_mr="cd $MR_ROOT"
 
 # dev
-alias DEV_ROOT='$HOME/dev'
-alias DEV_GITHUB_ROOT='${DEV_ROOT}/github.com'
-alias DEV_BAIDU_ROOT='${DEV_ROOT}/icode.baidu.com/baidu'
-alias DEV_DUER_ROOT='${DEV_ROOT}/icode.baidu.com/baidu/duer'
+# export DEV_ROOT='$HOME/dev'
+if [[ "${DEV_ROOT}" != ""]]; then
+    export DEV_GITHUB_ROOT='${DEV_ROOT}/github.com'
+    export DEV_BAIDU_ROOT='${DEV_ROOT}/icode.baidu.com/baidu'
+    export DEV_DUER_ROOT='${DEV_ROOT}/icode.baidu.com/baidu/duer'
+else
+    echo "undefined DEV_ROOT"
+fi
+
 
 alias to_dev='cd ${DEV_ROOT}'
 alias to_duer='cd ${DEV_DUER_ROOT}'
@@ -143,7 +148,11 @@ function gpush() {
 alias gs='git status'
 alias gb='git branch'
 
-alias bash.src='source $HOME/.bash_profile'
+if [[ -f "$HOME/.bash_profile"]]; then
+    alias bash.src='source $HOME/.bash_profile'
+elif [[ -f "$HOME/.profile" ]]; then
+    alias bash.src='source $HOME/.profile'
+fi
 
 alias tnew='tmux new -s'
 alias vi="vim"
@@ -191,6 +200,21 @@ alias 10="fg %10"
 alias 11="fg %11"
 alias 12="fg %12"
 alias 13="fg %13"
+
+
+## java
+if [[ "${JAVA_HOME}" == "" ]]; then
+    if [[ -f "/usr/lib/jvm/java-8-openjdk-amd64"]]; then
+        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+    fi
+fi
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${PATH}:${JAVA_HOME}/bin
+
+export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
+
+
 
 md5check() { md5sum "$1" | grep "$2";}
 function md5_string {
