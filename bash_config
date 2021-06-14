@@ -9,8 +9,8 @@ bashConfigItems=(
     ${DEV_GITHUB_ROOT}/toolkit/bash_config
     ${DEV_ROOT}/gitlab/toolkit/bash_config
 )
-for configItem in ${ldItems[@]}; do
-    if [[ -f "${configItem}"  ]]; then
+for configItem in ${bashConfigItems[@]}; do
+    if [[ -f "${configItem}" ]]; then
         source "${configItem}"
     fi
 done
@@ -114,7 +114,7 @@ alias to_mr="cd $MR_ROOT"
 
 # dev
 # export DEV_ROOT='$HOME/dev'
-if [[ "${DEV_ROOT}" != ""]]; then
+if [[ "${DEV_ROOT}" != "" ]]; then
     export DEV_GITHUB_ROOT='${DEV_ROOT}/github.com'
     export DEV_BAIDU_ROOT='${DEV_ROOT}/icode.baidu.com/baidu'
     export DEV_DUER_ROOT='${DEV_ROOT}/icode.baidu.com/baidu/duer'
@@ -148,7 +148,7 @@ function gpush() {
 alias gs='git status'
 alias gb='git branch'
 
-if [[ -f "$HOME/.bash_profile"]]; then
+if [[ -f "$HOME/.bash_profile" ]]; then
     alias bash.src='source $HOME/.bash_profile'
 elif [[ -f "$HOME/.profile" ]]; then
     alias bash.src='source $HOME/.profile'
