@@ -1,0 +1,6 @@
+####整理网上小说
+
+me=MadEdit()
+res = me.ReplaceTextAll("\\r\\n\\r\\n", "\\n\\n", True, False, False)
+res = me.ReplaceTextAll("\\r\\n", "", True, False, False)
+res = me.ReplaceTextAll(" ", "", False, False, False)

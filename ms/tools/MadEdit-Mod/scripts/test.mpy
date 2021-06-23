@@ -1,0 +1,11 @@
+#### Just a test
+#Create MadEdit Object for active edit
+medit = MadEdit()
+
+#Restore caret position
+
+medit.SetCaretPosition(1147786)
+medit.SetSelection(158, 161, True)
+medit.ReplaceText("stc", "madedit-mod", False, False, False, -1, -1)
+medit.SetSelection(179, 182, True)
+medit.ReplaceText("stc", "madedit-mod", False, False, False, -1, -1)

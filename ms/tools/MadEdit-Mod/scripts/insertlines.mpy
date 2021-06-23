@@ -1,0 +1,28 @@
+####Insert/remove empty lines
+####!Ctrl-Shift-1
+
+#Create MadEdit Object for the active edit
+medit = MadEdit()
+
+
+newline = '\r'
+if medit.GetInsertNewLineType() == MadNewLineType.DOS:
+    newline += '\n'
+elif medit.GetInsertNewLineType() == MadNewLineType.UNIX:
+    newline = '\n'
+
+result = InputBox("Please input how many lines you want to insert:", "Input lines")
+try:
+    if len(result) > 0:
+        num = int(result)
+        if num > 0:
+            lines = newline * num
+            medit.InsertStr(lines)
+        else :
+            if num != 0:
+                num = 0 - num
+                for i in range(num):
+                    medit.DeleteLine()
+            #MsgBox("Input Wrong numbers: "+result, "ERROR", MadDlgStyle.ICON_ERROR_HAND_STOP | MadDlgStyle.OK)
+except:
+    MsgBox("Input Wrong numbers: "+result, "ERROR", MadDlgStyle.ICON_ERROR_HAND_STOP | MadDlgStyle.OK)

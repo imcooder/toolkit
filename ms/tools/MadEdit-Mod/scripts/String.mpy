@@ -1,0 +1,16 @@
+#### String test----Replace \r\n with \n and insert wxT(""), then copy to clipboard
+#Create MadEdit Object for active edit
+medit = MadEdit()
+medit.SetCaretPosition(0)
+medit.ReplaceTextAll("\\r\\n", "\\\\n", True, False, False, -1)
+medit.InsertWChar(119) #'w'
+medit.InsertWChar(120) #'x'
+medit.InsertWChar(84) #'T'
+medit.InsertWChar(40) #'('
+medit.InsertWChar(34) #'"'
+medit.ProcessCommand(MadEditCommand.EndLine)
+medit.InsertWChar(34) #'"'
+medit.InsertWChar(41) #')'
+medit.InsertWChar(44) #','
+medit.SetSelection(0, 256, True)
+medit.CopyToClipboard()
