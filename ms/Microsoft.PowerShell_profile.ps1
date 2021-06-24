@@ -12,7 +12,6 @@ function sha256 { Get-FileHash -Algorithm SHA256 $args }
 function n      { notepad $args }
 
 # ssh-baidu
-function ssh-baidu { ssh xuejuntao@relay01.baidu.com }
 
 # ls
 function ll		{ ls $args }
