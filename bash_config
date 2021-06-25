@@ -118,9 +118,6 @@ if [[ "${DEV_ROOT}" = "" ]]; then
 	export DEV_ROOT="$HOME/dev"
 fi
 export DEV_GITHUB_ROOT="${DEV_ROOT}/github.com
-export DEV_BAIDU_ROOT="${DEV_ROOT}/icode.baidu.com/baidu"
-export DEV_DUER_ROOT="${DEV_ROOT}/icode.baidu.com/baidu/duer"
-
 
 alias to_dev='cd ${DEV_ROOT}'
 alias to_duer='cd ${DEV_DUER_ROOT}'
