@@ -117,7 +117,7 @@ alias to_mr="cd $MR_ROOT"
 if [[ "${DEV_ROOT}" = "" ]]; then
 	export DEV_ROOT="$HOME/dev"
 fi
-export DEV_GITHUB_ROOT="${DEV_ROOT}/github.com
+export DEV_GITHUB_ROOT="${DEV_ROOT}/github.com"
 
 alias to_dev='cd ${DEV_ROOT}'
 alias to_duer='cd ${DEV_DUER_ROOT}'
