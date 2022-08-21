@@ -8,8 +8,8 @@
 	"settings":
 	{
 		"new_window_full_screen": false,
-		"new_window_height": 600.0,
-		"new_window_maximized": false,
+		"new_window_height": 601.6,
+		"new_window_maximized": true,
 		"new_window_settings":
 		{
 			"auto_complete":
@@ -53,6 +53,8 @@
 			},
 			"file_history":
 			[
+				"/D/dev/icode.baidu.com/sdk-vod/Android/boost_1_61_0/jni/boost/config/auto_link.hpp",
+				"/D/dev/boost_1_62_0/boost/config/auto_link.hpp"
 			],
 			"find":
 			{
@@ -142,7 +144,7 @@
 			{
 			}
 		},
-		"new_window_width": 800.0
+		"new_window_width": 801.6
 	},
 	"windows":
 	[
@@ -155,60 +157,6 @@
 			},
 			"buffers":
 			[
-				{
-					"contents": "Package Control Messages\n========================\n\nMySQL Snippets\n--------------\n\n  ============================================================\n  Thank you for installing MySQL Snippets\n  ============================================================\n  Author: Anton Korniychuk\n  ------------------------------------------------------------\n\n  MySQL snippets is a selection of snippets\n  that will greatly improve your workflow.\n\n  This package is compatible with both Sublime\n  Text versions 2 & 3.\n\n  Documentation, examples & issue filing can be found here:\n  https://github.com/ancor-dev/sublime-sql-snippets\n\n  ------------------------------------------------------------\n  Do you like MySQL Snippets? Tell me \"thank you\"! :)\n\n  - Put a star on github (https://github.com/ancor-dev/sublime-sql-snippets)\n  - Tell your friends about MySQL Snippets\n\nJSON Stringify\n--------------\n\n  Thanks for installing JSON Stringify!\n\n  To try it out just search for \"JSON Stringify\" in the command palette.\n\n  ----------------------------------------------------------------------\n\n  This plugin in FOSS software, you can view the source code at any time here:\n  https://github.com/Nadock/json_stringify\n\n  If you find any issues with the plugin, please open an issue in the GitHub repo at the above link.\n\nSublimeLinter-golangcilint\n--------------------------\n\n  SublimeLinter-golangcilint\n  -------------------------------\n  This linter plugin for SublimeLinter provides an interface to golangci-lint.\n\n  More info: https://github.com/SublimeLinter/SublimeLinter-golangcilint\n\nJavaScript Enhancements\n-----------------------\n\n  =================================================================\n  ** THIS PLUGIN IS IN BETA! Thanks for your support in advance! **\n  =================================================================\n\n  If you like it, remember to star it ⭐ on GitHub: https://github.com/pichillilorenzo/JavaScriptEnhancements\n\n  ** USAGE **\n  ===========\n\n  See how it works on the Wiki: 👉👉 https://github.com/pichillilorenzo/JavaScriptEnhancements/wiki 👈👈\n\n  A little introduction to this plugin could be found in this css-tricks.com article: \"Turn Sublime Text 3 into a JavaScript IDE\"\n  👉👉 https://css-tricks.com/turn-sublime-text-3-into-a-javascript-ide 👈👈\n\n\n  *****************************************************************************\n  *                                                                           *\n  *             Do you want to help me develop this plugin?                   *\n  *                                                                           *\n  *                     Become a member of the team!                          *\n  * (see https://github.com/pichillilorenzo/JavaScriptEnhancements/issues/51) *\n  *                                                                           *\n  *****************************************************************************\n\n\n  ** WHAT IS THIS? **\n  ===================\n\n  This plugin uses Flow (javascript static type checker from Facebook) under the hood.\n\n  It offers better javascript autocomplete and a lot of features about creating, \n  developing and managing javascript projects, such as:\n\n  - Cordova projects (run cordova emulate, build, compile, serve, etc. directly from Sublime Text!)\n  - Ionic v1 and v2 (it includes also v3) projects (same as Cordova projects!)\n  - Angular v1 and v2 (it includes also v4 and v5) projects\n  - Vue projects (only about the creation at this moment, see https://github.com/pichillilorenzo/JavaScriptEnhancements/wiki/Example-Vue.js-project)\n  - React projects (only about the creation at this moment)\n  - React Native projects (only about the creation at this moment. I will add also NativeScript support)\n  - Express projects (only about the creation at this moment)\n  - Yeoman generators\n  - Local bookmarks project\n  - JavaScript real-time errors\n  - Code Refactoring\n  - etc.\n\n  You could use it also in existing projects (see the Wiki - https://github.com/pichillilorenzo/JavaScriptEnhancements/wiki/Using-it-with-an-existing-project)!\n\n  It turns Sublime Text into a JavaScript IDE like!\n\n  This project is based on my other Sublime Text plugin JavaScript Completions (https://github.com/pichillilorenzo/JavaScript-Completions)\n\n  ** NOTE **\n  If you want use this plugin, you may want uninstall/disable the JavaScript Completions plugin, if installed.\n\n  ** OS SUPPORTED **\n  ==================\n\n  👉 Linux (64-bit)\n  👉 Mac OS X \n  👉 Windows (64-bit): released without the use of TerminalView plugin. For each feature (like also creating a project) will be used the cmd.exe shell (so during the creation of a project don't close it until it finishes!). Unfortunately the TerminalView plugin supports only Linux-based OS 😞. See https://github.com/Wramberg/TerminalView/issues/3#issuecomment-390434623, that is a workaround using WSL (Windows Subsystem for Linux).\n\n  ❗❗ Dependencies ❗❗\n  =======================\n\n  In order to work properly, this plugin has some dependencies:\n\n  👉 Sublime Text 3 (build 3124 or newer)\n  👉 Node.js and npm (https://nodejs.org or nvm (https://github.com/creationix/nvm))\n  👉 TerminalView (only for Linux and Mac OS X) sublime text plugin (https://github.com/Wramberg/TerminalView)\n\n  Not required, but useful for typescript files (Flow wont work on this type of files):\n\n  👉 TypeScript sublime text plugin (https://github.com/Microsoft/TypeScript-Sublime-Plugin) \n\n  ** Flow Requirements **\n  =======================\n\n  It use [Flow](https://github.com/facebook/flow) for type checking and auto-completions.\n\n  👉 Mac OS X\n  👉 Linux (64-bit)\n  👉 Windows (64-bit)\n\n  Email me for any questions or doubts about this new project on: pichillilorenzo@gmail.com\n\n  ** Donation **\n  ==============\n\n  If this project help you reduce time to develop and also you like it, please support it with a donation 😄👍. Thanks!\n\n  Open Collective: https://opencollective.com/javascriptenhancements/donate\n  PayPal: https://www.paypal.me/LorenzoPichilli\n\n  Thanks anyway for your support! 😄😄\n\n  MIT License",
-					"settings":
-					{
-						"buffer_size": 6053,
-						"line_ending": "Windows",
-						"name": "Package Control Messages",
-						"read_only": true,
-						"scratch": true
-					},
-					"undo_stack":
-					[
-						[
-							1,
-							1,
-							"insert",
-							{
-								"characters": "Package Control Messages\n========================\n\nMySQL Snippets\n--------------\n\n  ============================================================\n  Thank you for installing MySQL Snippets\n  ============================================================\n  Author: Anton Korniychuk\n  ------------------------------------------------------------\n\n  MySQL snippets is a selection of snippets\n  that will greatly improve your workflow.\n\n  This package is compatible with both Sublime\n  Text versions 2 & 3.\n\n  Documentation, examples & issue filing can be found here:\n  https://github.com/ancor-dev/sublime-sql-snippets\n\n  ------------------------------------------------------------\n  Do you like MySQL Snippets? Tell me \"thank you\"! :)\n\n  - Put a star on github (https://github.com/ancor-dev/sublime-sql-snippets)\n  - Tell your friends about MySQL Snippets"
-							},
-							"LAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAAAAAAAAAZAAAAAAAAAAAAAAAZAAAAAAAAADEAAAAAAAAAAAAAADEAAAAAAAAAMgAAAAAAAAAAAAAAMgAAAAAAAAAzAAAAAAAAAAAAAAAzAAAAAAAAAEEAAAAAAAAAAAAAAEEAAAAAAAAAQgAAAAAAAAAAAAAAQgAAAAAAAABQAAAAAAAAAAAAAABQAAAAAAAAAFEAAAAAAAAAAAAAAFEAAAAAAAAAUgAAAAAAAAAAAAAAUgAAAAAAAACQAAAAAAAAAAAAAACQAAAAAAAAAJEAAAAAAAAAAAAAAJEAAAAAAAAAugAAAAAAAAAAAAAAugAAAAAAAAC7AAAAAAAAAAAAAAC7AAAAAAAAAPkAAAAAAAAAAAAAAPkAAAAAAAAA+gAAAAAAAAAAAAAA+gAAAAAAAAAUAQAAAAAAAAAAAAAUAQAAAAAAABUBAAAAAAAAAAAAABUBAAAAAAAAUwEAAAAAAAAAAAAAUwEAAAAAAABUAQAAAAAAAAAAAABUAQAAAAAAAFUBAAAAAAAAAAAAAFUBAAAAAAAAgAEAAAAAAAAAAAAAgAEAAAAAAACBAQAAAAAAAAAAAACBAQAAAAAAAKsBAAAAAAAAAAAAAKsBAAAAAAAArAEAAAAAAAAAAAAArAEAAAAAAACtAQAAAAAAAAAAAACtAQAAAAAAANsBAAAAAAAAAAAAANsBAAAAAAAA3AEAAAAAAAAAAAAA3AEAAAAAAADyAQAAAAAAAAAAAADyAQAAAAAAAPMBAAAAAAAAAAAAAPMBAAAAAAAA9AEAAAAAAAAAAAAA9AEAAAAAAAAvAgAAAAAAAAAAAAAvAgAAAAAAADACAAAAAAAAAAAAADACAAAAAAAAYwIAAAAAAAAAAAAAYwIAAAAAAABkAgAAAAAAAAAAAABkAgAAAAAAAGUCAAAAAAAAAAAAAGUCAAAAAAAAowIAAAAAAAAAAAAAowIAAAAAAACkAgAAAAAAAAAAAACkAgAAAAAAANkCAAAAAAAAAAAAANkCAAAAAAAA2gIAAAAAAAAAAAAA2gIAAAAAAADbAgAAAAAAAAAAAADbAgAAAAAAACcDAAAAAAAAAAAAACcDAAAAAAAAKAMAAAAAAAAAAAAAKAMAAAAAAABSAwAAAAAAAAAAAAA",
-							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
-						],
-						[
-							2,
-							1,
-							"insert",
-							{
-								"characters": "\n\nJSON Stringify\n--------------\n\n  Thanks for installing JSON Stringify!\n\n  To try it out just search for \"JSON Stringify\" in the command palette.\n\n  ----------------------------------------------------------------------\n\n  This plugin in FOSS software, you can view the source code at any time here:\n  https://github.com/Nadock/json_stringify\n\n  If you find any issues with the plugin, please open an issue in the GitHub repo at the above link."
-							},
-							"FgAAAFIDAAAAAAAAUwMAAAAAAAAAAAAAUwMAAAAAAABUAwAAAAAAAAAAAABUAwAAAAAAAGIDAAAAAAAAAAAAAGIDAAAAAAAAYwMAAAAAAAAAAAAAYwMAAAAAAABxAwAAAAAAAAAAAABxAwAAAAAAAHIDAAAAAAAAAAAAAHIDAAAAAAAAcwMAAAAAAAAAAAAAcwMAAAAAAACaAwAAAAAAAAAAAACaAwAAAAAAAJsDAAAAAAAAAAAAAJsDAAAAAAAAnAMAAAAAAAAAAAAAnAMAAAAAAADkAwAAAAAAAAAAAADkAwAAAAAAAOUDAAAAAAAAAAAAAOUDAAAAAAAA5gMAAAAAAAAAAAAA5gMAAAAAAAAuBAAAAAAAAAAAAAAuBAAAAAAAAC8EAAAAAAAAAAAAAC8EAAAAAAAAMAQAAAAAAAAAAAAAMAQAAAAAAAB+BAAAAAAAAAAAAAB+BAAAAAAAAH8EAAAAAAAAAAAAAH8EAAAAAAAAqQQAAAAAAAAAAAAAqQQAAAAAAACqBAAAAAAAAAAAAACqBAAAAAAAAKsEAAAAAAAAAAAAAKsEAAAAAAAADwUAAAAAAAAAAAAA",
-							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABSAwAAAAAAAFIDAAAAAAAAAAAAAAAA8L8"
-						],
-						[
-							3,
-							1,
-							"insert",
-							{
-								"characters": "\n\nSublimeLinter-golangcilint\n--------------------------\n\n  SublimeLinter-golangcilint\n  -------------------------------\n  This linter plugin for SublimeLinter provides an interface to golangci-lint.\n\n  More info: https://github.com/SublimeLinter/SublimeLinter-golangcilint"
-							},
-							"DwAAAA8FAAAAAAAAEAUAAAAAAAAAAAAAEAUAAAAAAAARBQAAAAAAAAAAAAARBQAAAAAAACsFAAAAAAAAAAAAACsFAAAAAAAALAUAAAAAAAAAAAAALAUAAAAAAABGBQAAAAAAAAAAAABGBQAAAAAAAEcFAAAAAAAAAAAAAEcFAAAAAAAASAUAAAAAAAAAAAAASAUAAAAAAABkBQAAAAAAAAAAAABkBQAAAAAAAGUFAAAAAAAAAAAAAGUFAAAAAAAAhgUAAAAAAAAAAAAAhgUAAAAAAACHBQAAAAAAAAAAAACHBQAAAAAAANUFAAAAAAAAAAAAANUFAAAAAAAA1gUAAAAAAAAAAAAA1gUAAAAAAADXBQAAAAAAAAAAAADXBQAAAAAAAB8GAAAAAAAAAAAAAA",
-							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAPBQAAAAAAAA8FAAAAAAAAAAAAAAAA8L8"
-						],
-						[
-							2,
-							1,
-							"insert",
-							{
-								"characters": "\n\nJavaScript Enhancements\n-----------------------\n\n  =================================================================\n  ** THIS PLUGIN IS IN BETA! Thanks for your support in advance! **\n  =================================================================\n\n  If you like it, remember to star it ⭐ on GitHub: https://github.com/pichillilorenzo/JavaScriptEnhancements\n\n  ** USAGE **\n  ===========\n\n  See how it works on the Wiki: 👉👉 https://github.com/pichillilorenzo/JavaScriptEnhancements/wiki 👈👈\n\n  A little introduction to this plugin could be found in this css-tricks.com article: \"Turn Sublime Text 3 into a JavaScript IDE\"\n  👉👉 https://css-tricks.com/turn-sublime-text-3-into-a-javascript-ide 👈👈\n\n\n  *****************************************************************************\n  *                                                                           *\n  *             Do you want to help me develop this plugin?                   *\n  *                                                                           *\n  *                     Become a member of the team!                          *\n  * (see https://github.com/pichillilorenzo/JavaScriptEnhancements/issues/51) *\n  *                                                                           *\n  *****************************************************************************\n\n\n  ** WHAT IS THIS? **\n  ===================\n\n  This plugin uses Flow (javascript static type checker from Facebook) under the hood.\n\n  It offers better javascript autocomplete and a lot of features about creating, \n  developing and managing javascript projects, such as:\n\n  - Cordova projects (run cordova emulate, build, compile, serve, etc. directly from Sublime Text!)\n  - Ionic v1 and v2 (it includes also v3) projects (same as Cordova projects!)\n  - Angular v1 and v2 (it includes also v4 and v5) projects\n  - Vue projects (only about the creation at this moment, see https://github.com/pichillilorenzo/JavaScriptEnhancements/wiki/Example-Vue.js-project)\n  - React projects (only about the creation at this moment)\n  - React Native projects (only about the creation at this moment. I will add also NativeScript support)\n  - Express projects (only about the creation at this moment)\n  - Yeoman generators\n  - Local bookmarks project\n  - JavaScript real-time errors\n  - Code Refactoring\n  - etc.\n\n  You could use it also in existing projects (see the Wiki - https://github.com/pichillilorenzo/JavaScriptEnhancements/wiki/Using-it-with-an-existing-project)!\n\n  It turns Sublime Text into a JavaScript IDE like!\n\n  This project is based on my other Sublime Text plugin JavaScript Completions (https://github.com/pichillilorenzo/JavaScript-Completions)\n\n  ** NOTE **\n  If you want use this plugin, you may want uninstall/disable the JavaScript Completions plugin, if installed.\n\n  ** OS SUPPORTED **\n  ==================\n\n  👉 Linux (64-bit)\n  👉 Mac OS X \n  👉 Windows (64-bit): released without the use of TerminalView plugin. For each feature (like also creating a project) will be used the cmd.exe shell (so during the creation of a project don't close it until it finishes!). Unfortunately the TerminalView plugin supports only Linux-based OS 😞. See https://github.com/Wramberg/TerminalView/issues/3#issuecomment-390434623, that is a workaround using WSL (Windows Subsystem for Linux).\n\n  ❗❗ Dependencies ❗❗\n  =======================\n\n  In order to work properly, this plugin has some dependencies:\n\n  👉 Sublime Text 3 (build 3124 or newer)\n  👉 Node.js and npm (https://nodejs.org or nvm (https://github.com/creationix/nvm))\n  👉 TerminalView (only for Linux and Mac OS X) sublime text plugin (https://github.com/Wramberg/TerminalView)\n\n  Not required, but useful for typescript files (Flow wont work on this type of files):\n\n  👉 TypeScript sublime text plugin (https://github.com/Microsoft/TypeScript-Sublime-Plugin) \n\n  ** Flow Requirements **\n  =======================\n\n  It use [Flow](https://github.com/facebook/flow) for type checking and auto-completions.\n\n  👉 Mac OS X\n  👉 Linux (64-bit)\n  👉 Windows (64-bit)\n\n  Email me for any questions or doubts about this new project on: pichillilorenzo@gmail.com\n\n  ** Donation **\n  ==============\n\n  If this project help you reduce time to develop and also you like it, please support it with a donation 😄👍. Thanks!\n\n  Open Collective: https://opencollective.com/javascriptenhancements/donate\n  PayPal: https://www.paypal.me/LorenzoPichilli\n\n  Thanks anyway for your support! 😄😄\n\n  MIT License"
-							},
-							"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"
-						]
-					]
-				}
 			],
 			"build_system": "",
 			"build_system_choices":
@@ -246,6 +194,8 @@
 			},
 			"file_history":
 			[
+				"/D/dev/icode.baidu.com/sdk-vod/Android/boost_1_61_0/jni/boost/config/auto_link.hpp",
+				"/D/dev/boost_1_62_0/boost/config/auto_link.hpp"
 			],
 			"find":
 			{
@@ -284,40 +234,6 @@
 				{
 					"sheets":
 					[
-						{
-							"buffer": 0,
-							"selected": true,
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 6053,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										0,
-										1567
-									]
-								],
-								"settings":
-								{
-									"auto_indent": false,
-									"syntax": "Packages/Text/Plain text.tmLanguage",
-									"tab_size": 2,
-									"tab_width": 2,
-									"translate_tabs_to_spaces": true,
-									"word_wrap": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 2538.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 0,
-							"stack_multiselect": false,
-							"type": "text"
-						}
 					]
 				}
 			],
@@ -357,7 +273,7 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-1,-1,-1,-1,844,198,185,1014,60920ef192756f4ebd18ac85609678a0",
+			"position": "0,2,3,-32000,-32000,-1,-1,844,198,185,1014,74746b34d9f75549995fddb9dc7c4576",
 			"project": "",
 			"replace":
 			{

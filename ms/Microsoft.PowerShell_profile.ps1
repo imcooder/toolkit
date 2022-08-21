@@ -8,6 +8,8 @@ Import-Module oh-my-posh
 # 引入 ps-read-line
 Import-Module PSReadLine
 
+Import-Module Get-ChildItemColor
+
 # 设置 PowerShell 主题
 # Set-PoshPrompt ys
 Set-PoshPrompt paradox
@@ -40,14 +42,12 @@ function gb      { git branch }
 
 
 # Ensure that Get-ChildItemColor is loaded
-Import-Module Get-ChildItemColor
 # Set l and ls alias to use the new Get-ChildItemColor cmdlets
 Set-Alias l Get-ChildItemColor -Option AllScope
 Set-Alias ls Get-ChildItemColorFormatWide -Option AllScope
 
 
-function touch($name)
-{
+function touch($name) {
     if ($name) {
         $file_path = Split-Path -Path $name
         $file_name = Split-Path -Path $name -Leaf
@@ -182,4 +182,17 @@ function Get-IPv6Routes {
 	Get-NetRoute -AddressFamily IPv6 | Where-Object -FilterScript {$_.NextHop -ne '::'}
 }
 Set-Alias -Name getip6 -Value Get-IPv6Routes
+function Get-MyIp {
+	curl -L tool.lu/ip
+}
+Set-Alias -Name getmyip -Value Get-MyIp
 #-------------------------------    Set Network END     ----------------------------
+# Import the Chocolatey Profile that contains the necessary code to enable
+# tab-completions to function for `choco`.
+# Be aware that if you are missing these lines from your profile, tab completion
+# for `choco` will not function.
+# See https://ch0.co/tab-completion for details.
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
+}
