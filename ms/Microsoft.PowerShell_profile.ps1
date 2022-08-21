@@ -11,8 +11,7 @@ Import-Module PSReadLine
 Import-Module Get-ChildItemColor
 
 # 设置 PowerShell 主题
-# Set-PoshPrompt ys
-Set-PoshPrompt paradox
+Set-PoshPrompt aliens
 #------------------------------- Import Modules END   -------------------------------
 
 set-location c:
@@ -30,8 +29,7 @@ function n      { notepad $args }
 
 # ssh-baidu
 
-# ls
-function ll		{ ls $args }
+
 
 # git
 function gup	{ git pull }
@@ -45,7 +43,10 @@ function gb      { git branch }
 # Set l and ls alias to use the new Get-ChildItemColor cmdlets
 Set-Alias l Get-ChildItemColor -Option AllScope
 Set-Alias ls Get-ChildItemColorFormatWide -Option AllScope
-
+# ls
+function ll	{
+	ls $args
+}
 
 function touch($name) {
     if ($name) {
@@ -143,8 +144,8 @@ function ListDirectory {
 	(Get-ChildItem).Name
 	Write-Host("")
 }
-Set-Alias -Name ls -Value ListDirectory
-Set-Alias -Name ll -Value Get-ChildItem
+# Set-Alias -Name ls -Value ListDirectory
+# Set-Alias -Name ll -Value Get-ChildItem
 
 # 4. 打开当前工作目录
 function OpenCurrentFolder {
