@@ -21,15 +21,24 @@ if [[ `echo $sname | grep -P ".baidu.com$"`!="" ]]; then
     sname=$(echo $sname | sed 's/.baidu.com//i')
 fi
 isLinux="0"
-
-if [[ "$(uname)"="Linux" ]]; then
-  isLinux="1"
+isMac="0"
+if [[ "$(uname)" = "Linux" ]]; then
+    isLinux="1"
+elif [[ "$(uname)" = "Darwin" ]]; then
+    isMac="1"
 fi
 
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
 --cache=$HOME/.npm/.cache/cnpm \
 --disturl=https://npm.taobao.org/dist \
 --userconfig=$HOME/.cnpmrc"
+
+# dev
+# export DEV_ROOT='$HOME/dev'
+if [[ "${DEV_ROOT}" = "" ]]; then
+	export DEV_ROOT="$HOME/dev"
+fi
+export DEV_GITHUB_ROOT="${DEV_ROOT}/github.com"
 
 # 防止auto logout
 export TMOUT=864000
@@ -65,6 +74,10 @@ done
 LD_LIBRARY_PATH="$joinedPath"
 export LD_LIBRARY_PATH
 
+if [[ "$isMac" = "1" ]]; then
+    export ANDROID_HOME=~/Library/Android/sdk
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home
+fi
 ## PATH
 pathItems=(
     $LOCAL_ROOT/bin
@@ -82,6 +95,15 @@ pathItems=(
     $HOME/src/go/bin
     $PATH
     /opt/compiler/gcc-4.8.2/bin
+    ${ANDROID_NDK}
+    ${JAVA_HOME}/bin
+    ${JAVA_HOME}/jre/bin
+    ${ANDROID_HOME}/tools
+    ${ANDROID_HOME}/tools/bin
+    ${ANDROID_HOME}/platform-tools
+    $HOME/dev/platform-tools
+    ${ANDROID_HOME}/platform-tools/adb
+    $HOME/dev/platform-tools/adb
 )
 joinedPath=""
 for t in ${pathItems[@]}; do
@@ -109,13 +131,6 @@ alias la='ls -A'
 alias lh='ls -lh'
 # mr
 alias to_mr="cd $MR_ROOT"
-
-# dev
-# export DEV_ROOT='$HOME/dev'
-if [[ "${DEV_ROOT}" = "" ]]; then
-	export DEV_ROOT="$HOME/dev"
-fi
-export DEV_GITHUB_ROOT="${DEV_ROOT}/github.com"
 
 alias to_dev='cd ${DEV_ROOT}'
 alias to_duer='cd ${DEV_DUER_ROOT}'
