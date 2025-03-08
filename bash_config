@@ -162,12 +162,20 @@ if [[ -f "$HOME/.bash_profile" ]]; then
 elif [[ -f "$HOME/.profile" ]]; then
     alias bash.src='source $HOME/.profile'
 fi
+# 防止auto logout
+export TMOUT=864000
+export CLICOLOR=1
+export TERM=xterm-256color
 
 alias tnew='tmux new -s'
 alias vi="vim"
 alias j="jobs -l"
 alias mkdir="mkdir -pv "
+## set some other defaults ##
+alias df='df -H'
+alias du='du -ch'
 alias dp='du ./ --max-depth=1 -h'
+
 alias c="clear"
 ## get rid of command not found ##
 alias cd..='cd ..'
@@ -266,9 +274,7 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 ## Get server cpu info ##
 alias cpuinfo='lscpu'
 
-## set some other defaults ##
-alias df='df -H'
-alias du='du -ch'
+
 
 ## 显示和隐藏光标
 alias show_cursor='echo -e "\033[?25h"'
@@ -460,3 +466,37 @@ alias to_work="to_user work"
 
 # 服务器
 alias ssh_xiaodu="ssh cooder@172.20.108.27"
+
+# get web server headers #
+alias header='curl -I'
+## pass options to free ##
+alias meminfo='free -m -l -t'
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+
+## set some other defaults ##
+alias df='df -H'
+alias du='du -ch'
+
+## 显示和隐藏光标
+alias show_cursor='echo -e "\033[?25h"'
+alias hide_cursor='echo -e "\033[?25l"'
+
+function xtoolkit() {
+    node "${NODE_TOOLKIT_DIR}/app.js" "$@"
+}
+## ------------------node ------------------
+function xnode() {
+    node --max-old-space-size=8192 "$@"
+}
+export NODE_OPTIONS=--max-old-space-size=8192
+# --------------------------------------
+## llnode
+export LLNODE_DEBUG=true
+export TEST_LLNODE_DEBUG=true
