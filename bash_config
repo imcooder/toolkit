@@ -174,7 +174,7 @@ alias mkdir="mkdir -pv "
 ## set some other defaults ##
 alias df='df -H'
 alias du='du -ch'
-alias dp='du ./ --max-depth=1 -h'
+alias dp='du -d 1 -h '
 
 alias c="clear"
 ## get rid of command not found ##
