@@ -36,7 +36,7 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 # dev
 # export DEV_ROOT='$HOME/dev'
 if [[ "${DEV_ROOT}" = "" ]]; then
-	export DEV_ROOT="$HOME/dev"
+    export DEV_ROOT="$HOME/dev"
 fi
 export DEV_GITHUB_ROOT="${DEV_ROOT}/github.com"
 
@@ -500,3 +500,10 @@ export NODE_OPTIONS=--max-old-space-size=8192
 ## llnode
 export LLNODE_DEBUG=true
 export TEST_LLNODE_DEBUG=true
+
+# chromium
+## git
+export GIT_CACHE_PATH="${HOME}/dev/cache/git_cache"
+## sccache
+export SCCACHE_DIR="${HOME}/dev/cache/sccache_cache"
+export SCCACHE_CACHE_SIZE="40G"
