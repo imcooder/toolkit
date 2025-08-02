@@ -507,3 +507,8 @@ export GIT_CACHE_PATH="${HOME}/dev/cache/git_cache"
 ## sccache
 export SCCACHE_DIR="${HOME}/dev/cache/sccache_cache"
 export SCCACHE_CACHE_SIZE="40G"
+## ccache
+export CCACHE_DIR="${HOME}/.ccache"  # 设置缓存目录
+export CCACHE_MAXSIZE="30G"       # 最大缓存大小
+export CCACHE_COMPRESS=1          # 启用压缩
+export CCACHE_CPP2=1              # 提高预处理准确性
