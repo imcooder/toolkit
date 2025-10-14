@@ -27,7 +27,7 @@ if [[ "$(uname)" = "Linux" ]]; then
 elif [[ "$(uname)" = "Darwin" ]]; then
     isMac="1"
 fi
-
+extDir='/Volumes/EXT'
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
 --cache=$HOME/.npm/.cache/cnpm \
 --disturl=https://npm.taobao.org/dist \
@@ -505,14 +505,21 @@ export NODE_OPTIONS=--max-old-space-size=8192
 export LLNODE_DEBUG=true
 export TEST_LLNODE_DEBUG=true
 
+# cache directory
+if [[ "$isMac" = "1" && -d "${extDir}" ]]; then
+    cacheDir="${extDir}/dev/cache"
+else
+    cacheDir="${HOME}/dev/cache"
+fi
+
 # chromium
 ## git
-export GIT_CACHE_PATH="${HOME}/dev/cache/git_cache"
+export GIT_CACHE_PATH="${cacheDir}/git_cache"
 ## sccache
-export SCCACHE_DIR="${HOME}/dev/cache/sccache"
+export SCCACHE_DIR="${cacheDir}/sccache"
 export SCCACHE_CACHE_SIZE="40G"
 ## ccache
-export CCACHE_DIR="${HOME}/dev/cache/ccache"  # 设置缓存目录
+export CCACHE_DIR="${cacheDir}/ccache"  # 设置缓存目录
 export CCACHE_MAXSIZE="30G"       # 最大缓存大小
 export CCACHE_COMPRESS=1          # 启用压缩
 export CCACHE_CPP2=1              # 提高预处理准确性
