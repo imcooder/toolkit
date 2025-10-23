@@ -520,6 +520,6 @@ export SCCACHE_DIR="${cacheDir}/sccache"
 export SCCACHE_CACHE_SIZE="40G"
 ## ccache
 export CCACHE_DIR="${cacheDir}/ccache"  # 设置缓存目录
-export CCACHE_MAXSIZE="30G"       # 最大缓存大小
+export CCACHE_MAXSIZE="100G"       # 最大缓存大小
 export CCACHE_COMPRESS=1          # 启用压缩
 export CCACHE_CPP2=1              # 提高预处理准确性
