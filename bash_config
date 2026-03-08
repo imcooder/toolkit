@@ -523,3 +523,8 @@ export CCACHE_DIR="${cacheDir}/ccache"  # 设置缓存目录
 export CCACHE_MAXSIZE="100G"       # 最大缓存大小
 export CCACHE_COMPRESS=1          # 启用压缩
 export CCACHE_CPP2=1              # 提高预处理准确性
+
+# git config
+git config --global http.lowSpeedLimit 100
+git config --global http.lowSpeedTime 600
+git config --global http.timeout 7200
